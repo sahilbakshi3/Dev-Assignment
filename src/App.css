@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* focus ring helper */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(25,118,210,0.16);
+  border-radius: 6px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* item styles */
+.menu-item {
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 8px;
+  transition: background 0.12s, border-color 0.12s;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-item > div {
+  transition: background 0.12s, border-color 0.12s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.menu-item:hover > div {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
-.App-link {
-  color: #61dafb;
+/* panel animation */
+.drawer-panel {
+  will-change: transform, opacity;
+  transition: transform 240ms cubic-bezier(.2,.9,.2,1), opacity 180ms ease;
+  transform: translateX(0);
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.enter-from-right {
+  transform: translateX(100%);
+  opacity: 0;
 }
+.enter-from-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.enter-to-center {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* scrollbar */
+.drawer-panel::-webkit-scrollbar {
+  width: 10px;
+}
+.drawer-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+}
+
