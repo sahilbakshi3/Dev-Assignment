@@ -1,4 +1,3 @@
-// src/data/menuData.js
 import {
   Home,
   Layers,
@@ -7,7 +6,7 @@ import {
   MenuBook,
   HelpOutline,
   Science,
-  Nature,        // ✅ replaced Eco with Nature
+  Nature,   
   BarChart,
   People,
   Dns,
@@ -19,10 +18,6 @@ import {
   BuildCircle
 } from "@mui/icons-material";
 
-/**
- * menuData: exports menu items with icon components (MUI icons),
- * label, description and optional children arrays.
- */
 export const menuData = [
   {
     id: "home",

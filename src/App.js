@@ -7,9 +7,9 @@ function App() {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center", // vertical centering
-        alignItems: "center",     // horizontal centering
-        height: "100vh",          // full viewport height
+        justifyContent: "center", 
+        alignItems: "center",     
+        height: "100vh",          
         textAlign: "center"
       }}
     >

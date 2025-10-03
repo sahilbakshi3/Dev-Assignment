@@ -1,4 +1,3 @@
-// src/components/DesktopNestedDrawer.js
 import React, { useEffect, useState, useRef } from "react";
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
@@ -12,14 +11,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { menuData } from "../data/menuData";
 import useFocusTrap from "../hooks/useFocusTrap";
 
-/**
- * DesktopNestedDrawer — right-anchored nested drawer.
- * width prop controls drawer width on desktop.
- */
+
 export default function DesktopNestedDrawer({ width = 480 }) {
   const [open, setOpen] = useState(false);
   const [history, setHistory] = useState([{ title: "Menu", items: menuData }]);
-  const [direction, setDirection] = useState("forward"); // 'forward' | 'back'
+  const [direction, setDirection] = useState("forward");
   const containerRef = useFocusTrap(open);
 
   useEffect(() => {
@@ -101,7 +97,6 @@ export default function DesktopNestedDrawer({ width = 480 }) {
 
         <Divider />
 
-        {/* Panels container */}
         <Box ref={containerRef} sx={{ position: "relative", flex: 1, overflow: "hidden", p: 2 }}>
           <PanelWrapper key={history.length} enterFrom={direction === "forward" ? "right" : "left"}>
             <MenuPanel title={current.title} items={current.items} onNavigate={navigateTo} onItemClick={onItemClick} />
@@ -112,7 +107,6 @@ export default function DesktopNestedDrawer({ width = 480 }) {
   );
 }
 
-/* Menu panel rendering: icon, label, description, chevron */
 function MenuPanel({ items = [], onNavigate, onItemClick }) {
   return (
     <Box role="menu" sx={{ width: "100%" }}>
@@ -153,7 +147,7 @@ function MenuPanel({ items = [], onNavigate, onItemClick }) {
   );
 }
 
-/* PanelWrapper: adds entry classes to animate from left/right into center */
+
 function PanelWrapper({ children, enterFrom = "right" }) {
   const ref = useRef(null);
   useEffect(() => {

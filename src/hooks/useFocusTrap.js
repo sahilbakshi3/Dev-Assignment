@@ -1,10 +1,6 @@
 import { useEffect, useRef } from "react";
 
-/**
- * Simple focus trap to keep keyboard focus inside a container while open.
- * Usage: const ref = useFocusTrap(open);
- * Attach returned ref to the container element.
- */
+
 export default function useFocusTrap(open) {
   const ref = useRef(null);
 
@@ -19,7 +15,7 @@ export default function useFocusTrap(open) {
     const last = focusable[focusable.length - 1] || node;
     const prevActive = document.activeElement;
 
-    // move focus into the container
+
     first.focus();
 
     function onKey(e) {
